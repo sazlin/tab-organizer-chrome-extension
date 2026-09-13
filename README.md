@@ -8,6 +8,7 @@ A Chrome extension that groups your tabs by domain, for personal unpacked use.
 
 [![CI](https://img.shields.io/github/actions/workflow/status/sazlin/tab-organizer-chrome-extension/ci.yml?branch=main)](https://github.com/sazlin/tab-organizer-chrome-extension/actions/workflows/ci.yml)
 [![Version](https://img.shields.io/badge/version-1.0.0-blue)](manifest.json)
+[![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 [![Chrome 89+](https://img.shields.io/badge/chrome-89%2B-4285F4)](manifest.json)
 
 </div>
@@ -107,4 +108,4 @@ Bug reports and patches are welcome via [issues](https://github.com/sazlin/tab-o
 
 ## License
 
-This repository does not yet include a license file.
+Licensed under the [MIT License](LICENSE).
