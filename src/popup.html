@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tab Organizer</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>Tab Organizer</h1>
+        <p id="status">Grouping tabs by domain</p>
+      </header>
+
+      <section class="card">
+        <label class="setting">
+          <span>
+            <strong>Auto-organize</strong>
+            <small>Group tabs as they open or change</small>
+          </span>
+          <input id="autoOrganize" type="checkbox" role="switch" checked />
+        </label>
+
+        <label class="setting">
+          <span>
+            <strong>Group subdomains</strong>
+            <small>Treat mail.google.com as google.com</small>
+          </span>
+          <input id="groupSubdomains" type="checkbox" role="switch" checked />
+        </label>
+      </section>
+
+      <button id="organizeNow" type="button">Organize now</button>
+    </main>
+
+    <script src="popup.js" type="module"></script>
+  </body>
+</html>
