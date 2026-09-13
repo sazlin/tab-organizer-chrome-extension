@@ -1,38 +1,70 @@
+<div align="center">
+
+<img src="icons/icon128.png" alt="Tab Organizer logo" height="96">
+
 # Tab Organizer
 
-A local Chrome extension that automatically groups your tabs by domain, using Chrome's built-in tab groups.
+A Chrome extension that groups your tabs by domain, for personal unpacked use.
 
-`github.com`, `google.com`, `reddit.com`, and other sites each get their own named group.
-New tabs join the matching group as they open or navigate.
+[![CI](https://img.shields.io/github/actions/workflow/status/sazlin/tab-organizer-chrome-extension/ci.yml?branch=main)](https://github.com/sazlin/tab-organizer-chrome-extension/actions/workflows/ci.yml)
+[![Version](https://img.shields.io/badge/version-1.0.0-blue)](manifest.json)
+[![Chrome 89+](https://img.shields.io/badge/chrome-89%2B-4285F4)](manifest.json)
+
+</div>
+
+<p align="center">
+  <img src="docs/popup.png" alt="Tab Organizer popup with auto-organize, group subdomains, and Organize now" width="360">
+</p>
+
+## Features
+
+- **Groups by domain, per window.** `github.com`, `google.com`, and `reddit.com` each get a named Chrome tab group.
+- **Strips `www.`.** `www.github.com` and `github.com` land in the same group.
+- **Optional subdomain collapse.** `mail.google.com` can join the `google.com` group.
+- **Leaves special tabs alone.** Pinned tabs, `chrome://` pages, and other non-http tabs stay ungrouped.
+- **Stable colors and a badge.** Each domain gets a consistent group color, and the toolbar icon shows the group count.
 
 This is for personal, unpacked use on your own machine.
 It is not packaged for the Chrome Web Store.
 
-## What it does
+## Installation
 
-- Groups http(s) tabs in each window by domain.
-- Strips `www.` so `www.github.com` and `github.com` land in the same group.
-- Optionally collapses subdomains, so `mail.google.com` joins the `google.com` group.
-- Leaves pinned tabs, `chrome://` pages, and other non-http tabs alone.
-- Assigns a stable color to each domain.
-- Shows a group count on the toolbar icon.
+Requires Chrome 89 or newer.
 
-Open the toolbar popup to toggle auto-organize, change subdomain grouping, or run **Organize now**.
+```bash
+git clone https://github.com/sazlin/tab-organizer-chrome-extension.git
+```
 
-## Install in Chrome
+Then load the clone as an unpacked extension:
 
-1. Build is not required.
-   The extension loads directly from this folder.
-2. Open Chrome and go to `chrome://extensions`.
-3. Turn on **Developer mode** in the top-right corner.
-4. Click **Load unpacked**.
-5. Select this repository folder (the one that contains `manifest.json`).
-6. Pin **Tab Organizer** from the puzzle-piece extensions menu if you want the popup one click away.
+1. Open Chrome and go to `chrome://extensions`.
+2. Turn on **Developer mode** in the top-right corner.
+3. Click **Load unpacked**.
+4. Select this repository folder (the one that contains `manifest.json`).
+5. Pin **Tab Organizer** from the puzzle-piece extensions menu if you want the popup one click away.
 
 Chrome will prompt for the `tabs`, `tabGroups`, and `storage` permissions.
 Those are required so the extension can read tab URLs, create groups, and remember your settings.
 
-## Use it
+See Chrome's [load an unpacked extension](https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-world#load-unpacked) guide if the Extensions page looks different.
+
+<details>
+<summary>Maintainer setup</summary>
+
+Requires [Homebrew](https://brew.sh) and [just](https://github.com/casey/just).
+
+```bash
+just setup
+just test
+```
+
+`just setup` installs `just` and Node via the Brewfile.
+`just test` runs `npm test` (Node's built-in test runner).
+There is no application build; Chrome loads the source files directly.
+
+</details>
+
+## Quick start
 
 Open a few tabs from the same site, or click **Organize now** in the popup.
 Existing tabs are grouped when the extension is installed or when Chrome starts, as long as auto-organize is on.
@@ -42,14 +74,37 @@ Chrome does not let a single tab group span multiple windows.
 
 If you use Incognito windows, open `chrome://extensions`, click **Details** on Tab Organizer, and enable **Allow in Incognito**.
 
-## Update after code changes
+The grouping key used by the extension:
 
-1. Return to `chrome://extensions`.
-2. Click the reload arrow on the Tab Organizer card.
-3. Click **Organize now** if you want to regroup immediately.
+```js
+import { groupKey } from "./src/domain.js";
 
-## Uninstall
+groupKey("https://www.github.com/sazlin", true);
+// github.com
 
-On `chrome://extensions`, click **Remove** on the Tab Organizer card.
+groupKey("https://mail.google.com/mail", true);
+// google.com
+
+groupKey("https://mail.google.com/mail", false);
+// mail.google.com
+```
+
+Reload after code changes: return to `chrome://extensions`, click the reload arrow on the Tab Organizer card, then click **Organize now** if you want to regroup immediately.
+
+To uninstall, click **Remove** on the Tab Organizer card at `chrome://extensions`.
 Chrome deletes the extension's local settings.
 Your tabs themselves are not removed.
+
+## Documentation
+
+- [Load unpacked extensions](https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-world#load-unpacked) for Chrome's install UI
+- [Grouping rules](src/domain.js) for hostnames, `www.` stripping, and subdomain collapse
+- [Maintainer recipes](justfile) for `just test`, CI, and loadout sync
+
+## Contributing
+
+Bug reports and patches are welcome via [issues](https://github.com/sazlin/tab-organizer-chrome-extension/issues) and pull requests.
+
+## License
+
+This repository does not yet include a license file.
