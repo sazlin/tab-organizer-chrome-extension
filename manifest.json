@@ -24,5 +24,5 @@
     "service_worker": "src/background.js",
     "type": "module"
   },
-  "permissions": ["tabs", "tabGroups", "storage"]
+  "permissions": ["tabs", "tabGroups", "storage", "alarms"]
 }

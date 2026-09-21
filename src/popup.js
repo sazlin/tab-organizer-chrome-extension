@@ -1,7 +1,9 @@
-import { getSettings, setSettings } from "./settings.js";
+import { DEFAULT_SETTINGS, getSettings, setSettings } from "./settings.js";
 
 const autoOrganize = document.getElementById("autoOrganize");
 const groupSubdomains = document.getElementById("groupSubdomains");
+const tabBumpSeconds = document.getElementById("tabBumpSeconds");
+const groupBumpSeconds = document.getElementById("groupBumpSeconds");
 const organizeNow = document.getElementById("organizeNow");
 const status = document.getElementById("status");
 
@@ -22,6 +24,23 @@ async function restoreSettings() {
   const settings = await getSettings();
   autoOrganize.checked = settings.autoOrganize;
   groupSubdomains.checked = settings.groupSubdomains;
+  tabBumpSeconds.value = String(settings.tabBumpSeconds);
+  groupBumpSeconds.value = String(settings.groupBumpSeconds);
+}
+
+/**
+ * @param {HTMLInputElement} input
+ * @param {number} fallback
+ * @returns {number}
+ */
+function readSeconds(input, fallback) {
+  const n = Number(input.value);
+  if (input.value === "" || !Number.isFinite(n) || n < 0) {
+    input.value = String(fallback);
+    return fallback;
+  }
+
+  return n;
 }
 
 autoOrganize.addEventListener("change", async () => {
@@ -30,6 +49,21 @@ autoOrganize.addEventListener("change", async () => {
 
 groupSubdomains.addEventListener("change", async () => {
   await setSettings({ groupSubdomains: groupSubdomains.checked });
+});
+
+tabBumpSeconds.addEventListener("change", async () => {
+  await setSettings({
+    tabBumpSeconds: readSeconds(tabBumpSeconds, DEFAULT_SETTINGS.tabBumpSeconds),
+  });
+});
+
+groupBumpSeconds.addEventListener("change", async () => {
+  await setSettings({
+    groupBumpSeconds: readSeconds(
+      groupBumpSeconds,
+      DEFAULT_SETTINGS.groupBumpSeconds,
+    ),
+  });
 });
 
 organizeNow.addEventListener("click", async () => {

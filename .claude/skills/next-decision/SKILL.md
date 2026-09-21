@@ -6,7 +6,7 @@ description: Use only when the user says /next-decision or /next-decision with a
 metadata:
   loadout.managed: 'true'
   loadout.source: skills/next-decision/SKILL.md
-  loadout.sha: 9180c3a
+  loadout.sha: fe1fe54
 ---
 
 # Next-decision

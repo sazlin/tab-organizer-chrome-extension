@@ -9,7 +9,7 @@ globs:
 metadata:
   loadout.managed: 'true'
   loadout.source: rules/typescript/typescript-code-style.mdc
-  loadout.sha: 9180c3a
+  loadout.sha: fe1fe54
 ---
 
 # TypeScript code style
