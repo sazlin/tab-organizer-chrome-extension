@@ -76,31 +76,9 @@ The toolbar popup holds the grouping toggles, the two focus delays, and **Organi
 Open a few tabs from the same site, or click **Organize now** in the popup.
 Existing tabs are grouped when the extension is installed or when Chrome starts, as long as auto-organize is on.
 
-Grouping is per window.
-Chrome does not let a single tab group span multiple windows.
-
 If you use Incognito windows, open `chrome://extensions`, click **Details** on Tab Organizer, and enable **Allow in Incognito**.
 
-The grouping key used by the extension:
-
-```js
-import { groupKey } from "./src/domain.js";
-
-groupKey("https://www.github.com/sazlin", true);
-// github.com
-
-groupKey("https://mail.google.com/mail", true);
-// google.com
-
-groupKey("https://mail.google.com/mail", false);
-// mail.google.com
-```
-
-Reload after code changes: return to `chrome://extensions`, click the reload arrow on the Tab Organizer card, then click **Organize now** if you want to regroup immediately.
-
-To uninstall, click **Remove** on the Tab Organizer card at `chrome://extensions`.
-Chrome deletes the extension's local settings.
-Your tabs themselves are not removed.
+To uninstall, click **Remove** on the Tab Organizer card at `chrome://extensions`. The extension will uninstall but tab groups will remain.
 
 ## Documentation
 
