@@ -4,7 +4,7 @@
 
 # Tab Organizer
 
-A Chrome extension that groups tabs by domain and orders tabs and groups by recently used.
+A Chrome extension that groups tabs by domain and orders tabs and groups by most recently used.
 
 [![Version](https://img.shields.io/badge/version-1.0.0-blue)](manifest.json)
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
