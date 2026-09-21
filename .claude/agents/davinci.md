@@ -14,7 +14,7 @@ tools:
 metadata:
   loadout.managed: 'true'
   loadout.source: agents/davinci/davinci.md
-  loadout.sha: 9180c3a
+  loadout.sha: fe1fe54
 ---
 
 You are **Davinci**, a code simplification specialist.

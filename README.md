@@ -4,9 +4,8 @@
 
 # Tab Organizer
 
-A Chrome extension that groups your tabs by domain, for personal unpacked use.
+A Chrome extension that groups tabs by domain and orders tabs and groups by recently used.
 
-[![CI](https://img.shields.io/github/actions/workflow/status/sazlin/tab-organizer-chrome-extension/ci.yml?branch=main)](https://github.com/sazlin/tab-organizer-chrome-extension/actions/workflows/ci.yml)
 [![Version](https://img.shields.io/badge/version-1.0.0-blue)](manifest.json)
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 [![Chrome 89+](https://img.shields.io/badge/chrome-89%2B-4285F4)](manifest.json)
@@ -14,16 +13,14 @@ A Chrome extension that groups your tabs by domain, for personal unpacked use.
 </div>
 
 <p align="center">
-  <img src="docs/grouped-tabs.jpg" alt="Chrome window with tabs grouped by domain, including github.com, reddit.com, and linkedin.com" width="880">
+  <img src="docs/grouped-tabs.jpg" alt="Chrome window with tabs grouped by domain, including github.com, reddit.com, datacurve.ai, and artificialanalysis.ai" width="880">
 </p>
 
 ## Features
 
-- **Groups by domain, per window.** `github.com`, `google.com`, and `reddit.com` each get a named Chrome tab group.
-- **Strips `www.`.** `www.github.com` and `github.com` land in the same group.
-- **Optional subdomain collapse.** `mail.google.com` can join the `google.com` group.
-- **Recent tabs float up.** After 3 seconds focused, a tab leads its group. After 30 seconds, the group leads the window. Both delays are in the popup.
-- **Leaves special tabs alone.** Pinned tabs, `chrome://` pages, and other non-http tabs stay ungrouped.
+- **Groups by domain, per window.** Automatically group tabs by second-level domain, such as `github.com`, `google.com`, and `reddit.com`.
+- **Recent tabs and groups float up.** Focused tabs float to the top of their group after 3 seconds. Groups float up after 30 seconds. Thresholds are configurable.
+- **Special tabs get special treatment.** Pinned tabs, `chrome://` pages, and other non-http tabs stay ungrouped.
 - **Stable colors and a badge.** Each domain gets a consistent group color, and the toolbar icon shows the group count.
 
 This is for personal, unpacked use on your own machine.
@@ -65,6 +62,14 @@ just test
 There is no application build; Chrome loads the source files directly.
 
 </details>
+
+## Configuration
+
+The toolbar popup holds the grouping toggles, the two focus delays, and **Organize now**.
+
+<p align="center">
+  <img src="docs/popup.png" alt="Tab Organizer popup with auto-organize, group subdomains, focus delays, and Organize now" width="360">
+</p>
 
 ## Quick start
 

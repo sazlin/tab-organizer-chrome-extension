@@ -12,7 +12,7 @@ metadata:
   upstream: https://github.com/jacobmassey/github-upload-media-to-pr
   loadout.managed: 'true'
   loadout.source: skills/github-upload-media-to-pr/SKILL.md
-  loadout.sha: 9180c3a
+  loadout.sha: fe1fe54
 ---
 
 # Upload Media to PR

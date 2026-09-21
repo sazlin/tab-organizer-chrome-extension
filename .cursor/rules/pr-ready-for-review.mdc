@@ -5,7 +5,7 @@ alwaysApply: true
 metadata:
   loadout.managed: 'true'
   loadout.source: rules/core/pr-ready-for-review.mdc
-  loadout.sha: 9180c3a
+  loadout.sha: fe1fe54
 ---
 
 # PRs ready for review

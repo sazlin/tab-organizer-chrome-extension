@@ -11,7 +11,7 @@ description: 'Code review focused exclusively on over-engineering. Finds what to
 metadata:
   loadout.managed: 'true'
   loadout.source: skills/ponytail-review/SKILL.md
-  loadout.sha: 9180c3a
+  loadout.sha: fe1fe54
 ---
 
 Review diffs for unnecessary complexity. One line per finding: location, what
