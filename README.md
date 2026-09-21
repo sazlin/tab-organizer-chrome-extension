@@ -14,7 +14,7 @@ A Chrome extension that groups your tabs by domain, for personal unpacked use.
 </div>
 
 <p align="center">
-  <img src="docs/popup.png" alt="Tab Organizer popup with auto-organize, group subdomains, and Organize now" width="360">
+  <img src="docs/grouped-tabs.jpg" alt="Chrome window with tabs grouped by domain, including github.com, reddit.com, and linkedin.com" width="880">
 </p>
 
 ## Features
@@ -22,6 +22,7 @@ A Chrome extension that groups your tabs by domain, for personal unpacked use.
 - **Groups by domain, per window.** `github.com`, `google.com`, and `reddit.com` each get a named Chrome tab group.
 - **Strips `www.`.** `www.github.com` and `github.com` land in the same group.
 - **Optional subdomain collapse.** `mail.google.com` can join the `google.com` group.
+- **Recent tabs float up.** After 3 seconds focused, a tab leads its group. After 30 seconds, the group leads the window. Both delays are in the popup.
 - **Leaves special tabs alone.** Pinned tabs, `chrome://` pages, and other non-http tabs stay ungrouped.
 - **Stable colors and a badge.** Each domain gets a consistent group color, and the toolbar icon shows the group count.
 
@@ -44,8 +45,8 @@ Then load the clone as an unpacked extension:
 4. Select this repository folder (the one that contains `manifest.json`).
 5. Pin **Tab Organizer** from the puzzle-piece extensions menu if you want the popup one click away.
 
-Chrome will prompt for the `tabs`, `tabGroups`, and `storage` permissions.
-Those are required so the extension can read tab URLs, create groups, and remember your settings.
+Chrome will prompt for the `tabs`, `tabGroups`, `storage`, and `alarms` permissions.
+Those are required so the extension can read tab URLs, create groups, remember your settings, and move focused tabs after a delay.
 
 See Chrome's [load an unpacked extension](https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-world#load-unpacked) guide if the Extensions page looks different.
 
